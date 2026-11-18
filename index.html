@@ -1,55 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta name="google-site-verification" content="Gq-xdOAl52337uP7lW2MKcCWxwYQNMuEOB2xBY_UPGY" />
   <meta charset="UTF-8">
-  <title>MyRide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyRide – Application de transport</title>
+  <meta name="description" content="MyRide met en relation passagers et chauffeurs. Réservez une course, suivez votre chauffeur et payez en toute sécurité dans l'application.">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f7f7f7;
-      color: #333;
-      text-align: center;
-    }
-    h1 {
-      color: #1976d2;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+    :root { --blue: #1976d2; --text: #2b2b2b; --muted: #666; --bg: #f5f6f8; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { background: var(--blue); color: #fff; text-align: center; padding: 48px 20px; }
+    header h1 { margin: 0 0 8px; font-size: 2.2rem; }
+    header p { margin: 0; opacity: .95; }
+    nav { background: #fff; border-bottom: 1px solid #e3e5e8; text-align: center; padding: 12px 10px; }
+    nav a { color: var(--blue); text-decoration: none; margin: 0 10px; font-size: .95rem; white-space: nowrap; }
+    main { max-width: 760px; margin: 24px auto; padding: 0 16px; }
+    section { background: #fff; border-radius: 10px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    h2 { color: var(--blue); margin-top: 0; }
+    h3 { margin-bottom: 4px; }
+    ul { padding-left: 20px; }
+    .note { color: var(--muted); font-size: .9rem; }
+    footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 24px 16px 40px; }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+<header>
   <h1>MyRide</h1>
+  <p>Réservez une course, suivez votre chauffeur, payez en toute sécurité.</p>
+</header>
 
-  <p>
-    MyRide is a mobile application designed to connect riders and drivers
-    through a simple and secure transportation platform.
-  </p>
+<nav>
+  <a href="#apropos">À propos</a>
+  <a href="#fonctionnement">Fonctionnement</a>
+  <a href="#tarifs">Tarifs</a>
+  <a href="#annulation">Annulation et remboursement</a>
+  <a href="#cgu">Conditions d'utilisation</a>
+  <a href="#confidentialite">Confidentialité</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <p>
-    The application allows users to request rides, track their location,
-    and complete payments securely.
-  </p>
+<main>
 
-  <p>
-    This website serves as the official information page for the MyRide
-    mobile application.
-  </p>
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p>
+      MyRide est une application mobile qui met en relation des passagers et des chauffeurs
+      pour des trajets en voiture. Le passager demande une course, suit l'arrivée de son chauffeur
+      sur la carte, puis règle sa course directement dans l'application.
+    </p>
+    <p>
+      L'application est disponible sur
+      [LIEN APP STORE] et [LIEN GOOGLE PLAY].
+    </p>
+  </section>
 
-  <p>
-    Contact: sophie@myridecom.com
-  </p>
-</div>
+  <section id="fonctionnement">
+    <h2>Comment ça marche</h2>
+    <h3>Pour les passagers</h3>
+    <ul>
+      <li>Saisissez votre point de départ et votre destination. Le prix estimé de la course est affiché avant la réservation.</li>
+      <li>Un chauffeur disponible à proximité accepte votre course. Vous suivez sa position en temps réel.</li>
+      <li>Le paiement est sécurisé et traité par Stripe. Lors de l'acceptation de la course, le montant est <strong>réservé (autorisé)</strong> sur votre carte, puis il n'est <strong>débité qu'à la fin de la course</strong>.</li>
+      <li>Une fois la course terminée, vous pouvez noter votre chauffeur.</li>
+    </ul>
+    <h3>Pour les chauffeurs</h3>
+    <ul>
+      <li>Créez votre compte chauffeur et configurez votre compte de paiement Stripe (vérification d'identité et coordonnées bancaires).</li>
+      <li>Passez en ligne pour recevoir des demandes de courses autour de vous.</li>
+      <li>Votre part de chaque course est versée sur votre compte Stripe, puis sur votre compte bancaire selon le calendrier de virement de Stripe.</li>
+    </ul>
+  </section>
+
+  <section id="tarifs">
+    <h2>Tarifs</h2>
+    <h3>Passagers</h3>
+    <ul>
+      <li>Le prix estimé est affiché avant la réservation. Le prix accepté par le passager au moment de la réservation est le prix débité à la fin de la course.</li>
+      <li>Aucun frais d'inscription. Aucun abonnement pour les passagers.</li>
+      <li>Frais d'annulation : voir la section « Annulation et remboursement ».</li>
+    </ul>
+    <h3>Chauffeurs</h3>
+    <ul>
+      <li><strong>Formule commission :</strong> MyRide prélève une commission de 12 % sur chaque course.</li>
+      <li><strong>Formule abonnement :</strong> [PRIX] € par mois, sans commission sur les courses pendant la durée de l'abonnement actif.</li>
+    </ul>
+    <p class="note">Les prix sont indiqués en euros (EUR), toutes taxes comprises le cas échéant. [PRÉCISER LA TVA SELON VOTRE STATUT]</p>
+  </section>
+
+  <section id="annulation">
+    <h2>Annulation et remboursement</h2>
+    <ul>
+      <li><strong>Avant qu'un chauffeur accepte :</strong> l'annulation est gratuite. Aucun montant n'est débité.</li>
+      <li><strong>Après l'acceptation par un chauffeur :</strong> des frais d'annulation de 20 % du prix estimé de la course peuvent être débités. Le reste du montant réservé est libéré.</li>
+      <li><strong>Course non effectuée ou erreur de facturation :</strong> contactez-nous à l'adresse indiquée ci-dessous avec la date et l'heure de la course. Après examen, tout montant débité à tort est remboursé sur la carte utilisée pour le paiement, généralement sous [DÉLAI] jours ouvrés selon votre banque.</li>
+    </ul>
+  </section>
+
+  <section id="cgu">
+    <h2>Conditions d'utilisation</h2>
+    <p class="note">Version du [DATE].</p>
+    <ul>
+      <li>MyRide est une plateforme de mise en relation entre passagers et chauffeurs. Le contrat de transport est conclu entre le passager et le chauffeur.</li>
+      <li>Vous devez avoir [ÂGE MINIMUM] ans révolus pour créer un compte et fournir des informations exactes.</li>
+      <li>Vous êtes responsable de la confidentialité de vos identifiants et de l'usage de votre compte.</li>
+      <li>Les chauffeurs s'engagent à respecter la réglementation applicable à leur activité et à disposer des autorisations nécessaires. [À COMPLÉTER SELON VOTRE ACTIVITÉ]</li>
+      <li>Tout comportement abusif, frauduleux ou dangereux peut entraîner la suspension ou la suppression du compte.</li>
+      <li>MyRide peut modifier ces conditions ; la version en vigueur est celle publiée sur cette page.</li>
+    </ul>
+  </section>
+
+  <section id="confidentialite">
+    <h2>Politique de confidentialité</h2>
+    <p class="note">Responsable du traitement : [NOM LÉGAL OU RAISON SOCIALE], [ADRESSE].</p>
+    <h3>Données que nous traitons</h3>
+    <ul>
+      <li>Compte : nom, adresse e-mail, numéro de téléphone, rôle (passager ou chauffeur).</li>
+      <li>Course : points de départ et d'arrivée, historique des courses, notes et évaluations.</li>
+      <li>Localisation : la position du passager lors d'une demande de course ; la position du chauffeur lorsqu'il est en ligne.</li>
+      <li>Paiement : les paiements sont traités par Stripe. MyRide ne stocke pas vos numéros de carte bancaire.</li>
+    </ul>
+    <h3>Pourquoi</h3>
+    <p>Pour fournir le service (mise en relation, suivi de course, paiement), assurer la sécurité, traiter les réclamations et respecter nos obligations légales.</p>
+    <h3>Partage</h3>
+    <p>Vos données sont partagées avec le chauffeur ou le passager concerné par la course, et avec nos prestataires techniques (hébergement, paiement) uniquement pour fournir le service. Nous ne vendons pas vos données.</p>
+    <h3>Vos droits</h3>
+    <p>
+      Conformément au RGPD, vous pouvez accéder à vos données, les rectifier, demander leur suppression ou vous opposer à leur traitement.
+      Vous pouvez supprimer votre compte depuis l'application (Connexion et sécurité) ou nous écrire à l'adresse ci-dessous.
+      Vous pouvez aussi saisir la CNIL (www.cnil.fr).
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      E-mail : <a href="mailto:[EMAIL]">[EMAIL]</a><br>
+      Téléphone : [TÉLÉPHONE]<br>
+      [NOM LÉGAL OU RAISON SOCIALE] – [ADRESSE]
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  © MyRide – Site d'information officiel de l'application mobile MyRide.
+</footer>
 
 </body>
 </html>
